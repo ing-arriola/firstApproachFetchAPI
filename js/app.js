@@ -8,4 +8,7 @@ function cargarData(){
         .then((data)=>{
             res.innerHTML=data
         })
+        .catch((error)=>{
+            res.innerHTML=error
+        })
 }
