@@ -32,4 +32,7 @@ function cargarJson(){
                 res.appendChild(employee)
             });
         })
+        .catch((error)=>{
+            res.innerHTML=error
+        })
 }
