@@ -2,6 +2,8 @@
 document.getElementById("txtBtn").addEventListener("click",cargarData)
 //Button to process json
 document.getElementById("jsonBtn").addEventListener("click",cargarJson)
+//Button for API
+document.getElementById("apiBTN").addEventListener('click',loadAPI)
 //This is to show an answer
 const res=document.getElementById("resultado")
 
@@ -34,5 +36,21 @@ function cargarJson(){
         })
         .catch((error)=>{
             res.innerHTML=error
+        })
+}
+//Load API
+function loadAPI(){
+    fetch('https://picsum.photos/list')
+        .then((connection)=>{
+            return connection.json()
+        })
+        .then((data)=>{
+            let html=""
+            data.forEach(element=>{
+                html+=`<li> 
+                    <a href="${element.post_url}"> Ver imagen</a> author:${element.author} 
+                </li>`
+            })
+            res.innerHTML=html
         })
 }
