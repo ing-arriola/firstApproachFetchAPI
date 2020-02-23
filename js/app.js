@@ -53,4 +53,8 @@ function loadAPI(){
             })
             res.innerHTML=html
         })
+        .catch((error)=>{
+            res.innerHTML="Hubo un error, contacte al administrador"
+            console.log(error)
+        })
 }
